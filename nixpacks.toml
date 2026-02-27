@@ -2,4 +2,4 @@
 nixPkgs = ["nodejs"]
 
 [start]
-cmd = "cd backend && npm install && npm run build && npm start"
+cmd = "cd dayrate/backend && npm install && npm run build && npm start"
