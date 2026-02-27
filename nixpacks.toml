@@ -1,5 +1,8 @@
 [phases.setup]
 nixPkgs = ["nodejs"]
 
+[phases.install]
+cmds = ["cd dayrate/backend && npm install"]
+
 [start]
-cmd = "cd dayrate/backend && npm install && npm run build && npm start"
+cmd = "cd dayrate/backend && npm run build && npm start"
