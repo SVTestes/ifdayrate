@@ -2,7 +2,7 @@
 nixPkgs = ["nodejs"]
 
 [phases.install]
-cmds = ["cd dayrate/backend && npm install"]
+cmds = ["cd dayrate/backend && npm install --production"]
 
 [start]
-cmd = "cd dayrate/backend && npm run build && npm start"
+cmd = "cd dayrate/backend && node dist/index.js"
