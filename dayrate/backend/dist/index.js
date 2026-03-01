@@ -12,7 +12,19 @@ const groups_1 = __importDefault(require("./routes/groups"));
 const app = (0, express_1.default)();
 const PORT = process.env.PORT || 3001;
 app.use((0, cors_1.default)({
-    origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+    origin: (origin, callback) => {
+        // Permite localhost em dev e qualquer subdomínio vercel.app em prod
+        const allowed = [
+            /^http:\/\/localhost(:\d+)?$/,
+            /^https?:\/\/.*\.vercel\.app$/,
+        ];
+        if (!origin || allowed.some(re => re.test(origin)) || process.env.FRONTEND_URL === origin) {
+            callback(null, true);
+        }
+        else {
+            callback(null, false);
+        }
+    },
     credentials: true,
 }));
 app.use(express_1.default.json());
