@@ -343,7 +343,7 @@ export default function App() {
   }, [calMonth]);
 
   // ─── Styles factory ──────────────────────────────────────────
-  const css = {
+  const css: any = {
     app: { minHeight:"100vh", background:G.offWhite, color:G.text, fontFamily:"'Plus Jakarta Sans',sans-serif", maxWidth:430, margin:"0 auto", position:"relative" },
     topbar: { background:T.headerBg, padding:"0 18px", display:"flex", alignItems:"center", justifyContent:"space-between", height:58, position:"sticky", top:0, zIndex:200, boxShadow:`0 2px 12px ${T.primary}44` },
     nav: { display:"flex", justifyContent:"space-around", alignItems:"center", background:G.white, borderTop:`1px solid ${G.gray100}`, position:"fixed", bottom:0, left:"50%", transform:"translateX(-50%)", width:"100%", maxWidth:430, zIndex:100, height:62, boxShadow:"0 -2px 16px #0000000a" },
@@ -757,7 +757,7 @@ export default function App() {
             const pct = allVals.length ? (count / allVals.length) * 100 : 0;
             return (
               <div key={label as string} style={{ display:"flex", alignItems:"center", gap:10, marginBottom:9 }}>
-                <div style={{ fontSize:11, color:G.gray500, width:46, fontWeight:600 }}>{label}</div>
+                <div style={{ fontSize:11, color:G.gray500, width:46, fontWeight:600 }}>{label as string}</div>
                 <div style={{ flex:1, height:7, borderRadius:4, background:G.gray50, overflow:"hidden", border:`1px solid ${G.gray100}` }}>
                   <div style={{ width:`${pct}%`, height:"100%", borderRadius:4, background:color as string }}/>
                 </div>
