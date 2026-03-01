@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect } from "react";
 
 // ─── API ────────────────────────────────────────────────────────
-const API_BASE = "https://ifdayrate-production.up.railway.app/api";
+const API_BASE = (import.meta.env.VITE_API_URL || "https://ifdayrate.up.railway.app") + "/api";
 
 async function apiFetch(path, options: RequestInit = {}, tok = null) {
   const headers: Record<string, string> = { "Content-Type": "application/json" };
